@@ -12,10 +12,29 @@ let aColor = UIColor(named: "Background")
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        
+        
+         
+    NavigationView {
+        
+        Form {
+            
+            TextField("Aantal ml", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+        
+            
+            Button(action: {}) {
+                Text("Verzenden")
+            }
+            
+            
+            
+            
+            
+            
+        }.navigationBarTitle("Water drinken")
     }
 }
-
+}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
