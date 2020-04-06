@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        
+        
+        // Kijken of de health data beschikbaar is
+         if HKHealthStore.isHealthDataAvailable() {
+           // add code to use HealthKit here...
+        
+         }
+         return true
     }
 
     // MARK: UISceneSession Lifecycle
