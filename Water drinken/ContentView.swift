@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+let aColor = UIColor(named: "Background")
+
 struct ContentView: View {
     var body: some View {
         Text("Hello, World!")
