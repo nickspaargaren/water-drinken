@@ -12,20 +12,62 @@ import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+    
+    let healthKitStore:HKHealthStore = HKHealthStore()
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool  {
         
         // Kijken of de health data beschikbaar is
          if HKHealthStore.isHealthDataAvailable() {
-           // add code to use HealthKit here...
+            
+            
+            // Vragen om toestemming
+            func requestPermissions(completion: @escaping ((_ success:Bool, _ error:Error?) -> Void)){
+                let healthKitTypesToRead : Set<HKSampleType> = [
+                    HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!,
+                    HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+                ]
+
+                let healthKitTypesToWrite: Set<HKSampleType> = [
+                    HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!,
+                    HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+                ]
+
+                if !HKHealthStore.isHealthDataAvailable() {
+                    print("Error: HealthKit is not available in this Device")
+                    // Hier gaat nog iets fout
+                    // completion(false, error)
+                    return
+                }
+
+                healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) { (success, error) -> Void in
+                    completion(success,error )
+                }
+
+            }
+            
+            
+            
+            
+            
+            // Height ophalen
+            let heightType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+            let query = HKSampleQuery(sampleType: heightType, predicate: nil, limit: 1, sortDescriptors: nil) { (query, results, error) in
+                if let result = results?.first as? HKQuantitySample{
+                    print("Height => \(result.quantity)")
+                }else{
+                    print("OOPS didnt get height \nResults => \(results), error => \(error)")
+                }
+            }
+            self.healthKitStore.execute(query)
         
          }
          return true
     }
 
+    
+    
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -86,4 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
+
 

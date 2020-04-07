@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D5ABAFE243B3C480049333B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5ABAFD243B3C480049333B /* AppDelegate.swift */; };
 		3D5ABB00243B3C480049333B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5ABAFF243B3C480049333B /* SceneDelegate.swift */; };
 		3D5ABB03243B3C480049333B /* Water_drinken.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D5ABB01243B3C480049333B /* Water_drinken.xcdatamodeld */; };
 		3D5ABB05243B3C480049333B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5ABB04243B3C480049333B /* ContentView.swift */; };
@@ -16,6 +15,8 @@
 		3D5ABB0D243B3C500049333B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D5ABB0B243B3C500049333B /* LaunchScreen.storyboard */; };
 		3D5ABB18243B3C500049333B /* Water_drinkenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5ABB17243B3C500049333B /* Water_drinkenTests.swift */; };
 		3D5ABB23243B3C500049333B /* Water_drinkenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5ABB22243B3C500049333B /* Water_drinkenUITests.swift */; };
+		3D7F9ECD243C52B00044EEA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5ABAFD243B3C480049333B /* AppDelegate.swift */; };
+		3D7F9ECE243C53670044EEA9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7F9ECB243C51AC0044EEA9 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		3D5ABB1E243B3C500049333B /* Water drinkenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Water drinkenUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5ABB22243B3C500049333B /* Water_drinkenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water_drinkenUITests.swift; sourceTree = "<group>"; };
 		3D5ABB24243B3C500049333B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D7F9EC9243C51AC0044EEA9 /* Water drinken.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Water drinken.entitlements"; sourceTree = "<group>"; };
+		3D7F9ECB243C51AC0044EEA9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D7F9ECE243C53670044EEA9 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +89,7 @@
 				3D5ABB16243B3C500049333B /* Water drinkenTests */,
 				3D5ABB21243B3C500049333B /* Water drinkenUITests */,
 				3D5ABAFB243B3C480049333B /* Products */,
+				3D7F9ECA243C51AC0044EEA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +106,7 @@
 		3D5ABAFC243B3C480049333B /* Water drinken */ = {
 			isa = PBXGroup;
 			children = (
+				3D7F9EC9243C51AC0044EEA9 /* Water drinken.entitlements */,
 				3D5ABAFD243B3C480049333B /* AppDelegate.swift */,
 				3D5ABAFF243B3C480049333B /* SceneDelegate.swift */,
 				3D5ABB04243B3C480049333B /* ContentView.swift */,
@@ -137,6 +143,14 @@
 				3D5ABB24243B3C500049333B /* Info.plist */,
 			);
 			path = "Water drinkenUITests";
+			sourceTree = "<group>";
+		};
+		3D7F9ECA243C51AC0044EEA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D7F9ECB243C51AC0044EEA9 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D7F9ECD243C52B00044EEA9 /* AppDelegate.swift in Sources */,
 				3D5ABB03243B3C480049333B /* Water_drinken.xcdatamodeld in Sources */,
-				3D5ABAFE243B3C480049333B /* AppDelegate.swift in Sources */,
 				3D5ABB05243B3C480049333B /* ContentView.swift in Sources */,
 				3D5ABB00243B3C480049333B /* SceneDelegate.swift in Sources */,
 			);
@@ -438,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Water drinken/Water drinken.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Water drinken/Preview Content\"";
 				DEVELOPMENT_TEAM = TZ6333E53V;
@@ -458,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Water drinken/Water drinken.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Water drinken/Preview Content\"";
 				DEVELOPMENT_TEAM = TZ6333E53V;
